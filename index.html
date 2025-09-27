@@ -30,7 +30,7 @@
       text-align: center;
     }
     .countdown {
-      font-size: 2em;
+      font-size: 1.8em;
       font-weight: bold;
       margin: 20px 0;
       color: maroon;
@@ -92,23 +92,26 @@
   </header>
 
   <section>
-    <div id="countdown" class="countdown"></div>
+    <h2>Countdown to Wedding</h2>
+    <div id="wedding-countdown" class="countdown"></div>
     <p class="quote">“Two souls, one heart, bound together forever.”</p>
   </section>
 
   <section>
     <div class="event">
       <h3>🕉️ Wedding Ceremony</h3>
-      <p>Date: 16th October 2025</p>
-      <p>Venue: Aira Valley Resorts & Convention </p>
-      <p><a href="https://www.google.com/maps/place/AIRA+VALLEY+RESORT+%26+CONVENTIONS/@17.2075522,78.6020041,17z/data=!3m1!4b1!4m6!3m5!1s0x3bcba767e50cf319:0x44468b85282426a0!8m2!3d17.2075471!4d78.604579!16s%2Fg%2F11l6hnyyv1?entry=ttu&g_ep=EgoyMDI1MDkyNC4wIKXMDSoASAFQAw%3D%3D" target="_blank">📍 View Location</a></p>
+      <p>Date: 17th October 2025</p>
+      <p>Time: 12:23 AM</p>
+      <p>Venue: Aira Valley Resorts & Convention</p>
+      <p><a href="https://www.google.com/maps/place/AIRA+VALLEY+RESORT+%26+CONVENTIONS/@17.2075522,78.6020041,17z" target="_blank">📍 View Location</a></p>
     </div>
 
     <div class="event">
       <h3>🥁 Reception</h3>
       <p>Date: 16th October 2025</p>
-      <p>Venue: Aira Valley Resorts & Convention </p>
-      <p><a href="https://www.google.com/maps/place/AIRA+VALLEY+RESORT+%26+CONVENTIONS/@17.2075522,78.6020041,17z/data=!3m1!4b1!4m6!3m5!1s0x3bcba767e50cf319:0x44468b85282426a0!8m2!3d17.2075471!4d78.604579!16s%2Fg%2F11l6hnyyv1?entry=ttu&g_ep=EgoyMDI1MDkyNC4wIKXMDSoASAFQAw%3D%3D" target="_blank">📍 View Location</a></p>
+      <p>Time: 7:00 PM</p>
+      <p>Venue: Aira Valley Resorts & Convention</p>
+      <p><a href="https://www.google.com/maps/place/AIRA+VALLEY+RESORT+%26+CONVENTIONS/@17.2075522,78.6020041,17z" target="_blank">📍 View Location</a></p>
     </div>
   </section>
 
@@ -117,8 +120,8 @@
   </section>
 
   <script>
-    // Countdown Timer
-    const weddingDate = new Date("Nov 7, 2025 10:00:00").getTime();
+    // Wedding countdown (16th Oct 2025, 12:23 AM)
+    const weddingDate = new Date("Oct 16, 2025 00:23:00").getTime();
     const x = setInterval(function() {
       let now = new Date().getTime();
       let distance = weddingDate - now;
@@ -128,15 +131,14 @@
       let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
       let seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-      document.getElementById("countdown").innerHTML =
-        days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
-
-      if (distance < 0) {
+      if (distance >= 0) {
+        document.getElementById("wedding-countdown").innerHTML =
+          days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+      } else {
         clearInterval(x);
-        document.getElementById("countdown").innerHTML = "The Wedding Day Has Arrived! 💖";
+        document.getElementById("wedding-countdown").innerHTML = "💍 The Wedding has begun!";
       }
     }, 1000);
   </script>
 </body>
 </html>
-
